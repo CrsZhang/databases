@@ -10,18 +10,18 @@
                 "reader": {
                     "name": "oraclereader",
                     "parameter": {
-                        "username": "{username}",
-                        "password": "{password}",
+                        "username": "${username}",
+                        "password": "${password}",
                         "where": "",
                         "connection": [
                             {
                                 "querysql": [
                                     "
-                                    {querysql}
+                                    ${querysql}
                                     "
                                 ],
                                 "jdbcurl": [
-                                    "jdbc:oracle:thin:@(description =(address = (protocol = tcp)(host = {hostip})(port = {port}))(connect_data =(server = dedicated)(service_name = {servicename} )))"
+                                    "jdbc:oracle:thin:@(description =(address = (protocol = tcp)(host = ${hostip})(port = ${port}))(connect_data =(server = dedicated)(service_name = ${servicename} )))"
                                 ]
                             }
                         ]
@@ -31,11 +31,11 @@
                     "name": "mysqlwriter",
                     "parameter": {
                         "writemode": "insert",
-                        "username": "{username}",
-                        "password": "{password}",
+                        "username": "${username}",
+                        "password": "${password}",
                         "column": [
-                            "{col1}"
-                            ,"{col2}"
+                            "${col1}"
+                            ,"${col2}"
                         ],
                         "session": [
                             "set session sql_mode='ansi'"
@@ -45,9 +45,9 @@
                         ],
                         "connection": [
                             {
-                                "jdbcurl": "jdbc:mysql://{ip}:3306/{database}?useunicode=true&characterencoding=utf-8&autoreconnect=true",
+                                "jdbcurl": "jdbc:mysql://${ip}:3306/${database}?useunicode=true&characterencoding=utf-8&autoreconnect=true",
                                 "table": [
-                                    "{tablename}"
+                                    "${tablename}"
                                 ]
                             }
                         ]
